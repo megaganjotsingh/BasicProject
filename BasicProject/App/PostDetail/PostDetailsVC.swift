@@ -9,6 +9,10 @@ import Foundation
 import UIKit
 import Combine
 
+protocol PostDetailDelegate: AnyObject {
+    func funcForSendingData()
+}
+
 class PostDetailsVC: UIViewController {
     // MARK: - Outlets
     
@@ -17,6 +21,7 @@ class PostDetailsVC: UIViewController {
        
     var viewModel = PostDetailViewModel()
     var post: Post?
+    weak var delegate: PostDetailDelegate?
     
     private var cancellable = Set<AnyCancellable>()
     private var titleLabel = LabelFactory()
@@ -32,6 +37,9 @@ class PostDetailsVC: UIViewController {
 }
 
 extension PostDetailsVC {
+    
+    // MARK: - Helper Functions
+    
     func setupUI() {
         view.backgroundColor = .systemBackground
         view.addSubviews(titleLabel, descriptionLabel)
@@ -52,5 +60,10 @@ extension PostDetailsVC {
             descriptionLabel.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
             descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 16)
         ])
+    }
+    
+    func abcd() {
+        // we can send any data to previous view controller with delegate
+        delegate?.funcForSendingData()
     }
 }

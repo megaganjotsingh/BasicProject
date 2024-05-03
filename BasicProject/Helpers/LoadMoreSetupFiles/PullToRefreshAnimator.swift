@@ -12,7 +12,7 @@ import UIKit
 
 open class PullToRefreshAnimator: UIView, PullToRefreshDelegate {
 
-    open var spinner = UIActivityIndicatorView(style: .gray)
+    open var spinner = UIActivityIndicatorView(style: .medium)
 
     override init(frame: CGRect) {
         super.init(frame: frame)

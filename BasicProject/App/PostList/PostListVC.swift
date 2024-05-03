@@ -32,6 +32,9 @@ class PostListVC: UIViewController {
 }
 
 extension PostListVC {
+    
+    // MARK: Helper Functions
+    
     func setupUI() {
         navigationItem.title = "Posts"
         
@@ -85,7 +88,14 @@ extension PostListVC: UITableViewDelegate, UITableViewDataSource {
         let selectedPost = viewModel.allPosts[indexPath.row]
         
         let vc = PostDetailsVC()
+        vc.delegate = self
         vc.post = selectedPost
         navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+extension PostListVC: PostDetailDelegate {
+    func funcForSendingData() {
+        //
     }
 }

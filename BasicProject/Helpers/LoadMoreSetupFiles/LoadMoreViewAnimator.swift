@@ -11,7 +11,7 @@ import UIKit
 
 open class LoadMoreAnimator: UIView, LoadMoreDelegate {
 
-    open var spinner = UIActivityIndicatorView(style: .gray)
+    open var spinner = UIActivityIndicatorView(style: .medium)
 
     override init(frame: CGRect) {
         super.init(frame: frame)
